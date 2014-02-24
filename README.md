@@ -1,4 +1,4 @@
 podge
 =====
 
-IRC bot with hodgepodge of features.
+IRC bot with a hodgepodge of features.
