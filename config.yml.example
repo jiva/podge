@@ -1,3 +1,8 @@
 nick: podge
 server: irc.freenode.net
 channels: ["#test"]
+master: warrick
+
+pushover:
+  api_key: "AAAABBBBCCCC"
+  user_key: "DDDDEEEEFFFF"

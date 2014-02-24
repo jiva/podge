@@ -5,7 +5,7 @@ require 'yaml'
 require 'cinch'
 
 require_relative 'lib/asm'
-require_relative 'lib/pushover'
+require_relative 'lib/notify'
 
 CONFIG = YAML.load_file('config.yml')
 
@@ -15,7 +15,18 @@ bot = Cinch::Bot.new do
     c.server = CONFIG['server']
     c.ssl.use = true
     c.channels = CONFIG['channels']
-    c.plugins.plugins = [ASM] 
+    c.plugins.plugins = [ASM, Notify] 
+    c.plugins.options[Notify] = {
+      "pushover" => CONFIG['pushover']
+    }
+  end
+
+  def master
+    CONFIG['master']
+  end
+
+  trap "SIGINT" do
+    bot.quit
   end
 end
 bot.start
