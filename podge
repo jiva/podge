@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+# vim: ft=ruby 
+
+require 'yaml'
+require 'cinch'
+
+require_relative 'lib/asm'
+require_relative 'lib/pushover'
+
+CONFIG = YAML.load_file('config.yml')
+
+bot = Cinch::Bot.new do
+  configure do |c|
+    c.nick = CONFIG['nick']
+    c.server = CONFIG['server']
+    c.ssl.use = true
+    c.channels = CONFIG['channels']
+    c.plugins.plugins = [ASM] 
+  end
+end
+bot.start
