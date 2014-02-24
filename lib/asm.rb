@@ -1,5 +1,5 @@
 # Cinch plugin, which uses Metasploit's Rex::Assembly::Nasm
-# module to assemble and disassembl x86/x64 opcodes.
+# module to assemble and disassemble x86/x64 opcodes.
 
 # Examples:
 #
