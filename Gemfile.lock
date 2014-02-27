@@ -1,0 +1,14 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    cinch (2.0.12)
+    librex (0.0.68)
+    redis (3.0.6)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cinch
+  librex
+  redis
