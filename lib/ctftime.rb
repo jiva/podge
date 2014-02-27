@@ -16,7 +16,7 @@ class CTFTime
       feed.items.first(3).each do |item|
         if item.description
           description = sanitize_and_colorize(item)
-          description.each_line do |line|
+          description.each do |line|
             m.reply(line)
           end
           m.reply('  ')
@@ -37,7 +37,7 @@ class CTFTime
 
     format = description[/Format: (.*)/, 1]
     description.gsub!(format, StringIrc.new(format).blue.bold.to_s)
-    
-    description
+   
+    description.strip.split("\n").values_at(0,1,4)
   end
 end
