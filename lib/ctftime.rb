@@ -35,9 +35,6 @@ class CTFTime
     dates = description[/Date: (.*)/, 1]
     description.gsub!(dates, StringIrc.new(dates).yellow.bold.to_s)
 
-    format = description[/Format: (.*)/, 1]
-    description.gsub!(format, StringIrc.new(format).blue.bold.to_s)
-   
     description.strip.split("\n").values_at(0,1,4)
   end
 end
