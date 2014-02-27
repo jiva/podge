@@ -7,6 +7,7 @@ require 'bundler/setup'
 
 require_relative 'lib/asm'
 require_relative 'lib/notify'
+require_relative 'lib/ctftime'
 require_relative 'lib/shameboard'
 
 CONFIG = YAML.load_file('config.yml')
@@ -17,7 +18,7 @@ bot = Cinch::Bot.new do
     c.server = CONFIG['server']
     c.ssl.use = true
     c.channels = CONFIG['channels']
-    c.plugins.plugins = [ASM, Notify, Shameboard] 
+    c.plugins.plugins = [ASM, Notify, Shameboard, CTFTime] 
     c.plugins.options[Notify] = {
       "pushover" => CONFIG['pushover']
     }
